@@ -28,8 +28,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var pictureHeight: Double?
     var matWidth: Double?
     var matHeight: Double?
-    var overlap: Double?
-    var weight: Double?
+    var overlap: Double = 0
+    var weight: Double = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +42,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         weightField.delegate = self
 
         overlapField.text = "0"
-        overlap = 0;
         weightField.text = "0"
-        weight = 0;
     }
 
     // MARK: Actions
@@ -76,13 +74,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func overlapEditingDidEnd(_ sender: UITextField) {
-        overlap = fieldToDouble(field: overlapField)
+        overlap = fieldToDouble(field: overlapField)!
         tryToShowBorderSides()
         tryToShowBorderTopAndBottom()
     }
 
     @IBAction func weightEditingDidEnd(_ sender: UITextField) {
-        weight = fieldToDouble(field: weightField)
+        weight = fieldToDouble(field: weightField)!
         tryToShowBorderTopAndBottom()
     }
 
@@ -97,11 +95,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func tryToCalculateBorderSides() -> Double? {
-        if pictureWidth == nil || matWidth == nil || overlap == nil {
+        if pictureWidth == nil || matWidth == nil {
             return nil
         }
         
-        let effectivePictureWidth = pictureWidth! - 2*overlap!;
+        let effectivePictureWidth = pictureWidth! - 2*overlap;
         return (matWidth! - effectivePictureWidth) / 2
     }
     
@@ -114,20 +112,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     func tryToCalculateBorderTopAndBottom() -> (top: Double?, bottom: Double?) {
-        if pictureHeight == nil || matHeight == nil || overlap == nil || weight == nil {
+        if pictureHeight == nil || matHeight == nil {
             return (nil, nil)
         }
         
-        let effectivePictureHeight = pictureHeight! - 2*overlap!;
+        let effectivePictureHeight = pictureHeight! - 2*overlap;
         let border = (matHeight! - effectivePictureHeight) / 2
-        return (border - weight!, border + weight!)
+        return (border - weight, border + weight)
     }
 
     func fieldToDouble(field: UITextField) -> Double? {
-        if field.text == nil {
-            return nil
-        }
-        
-        return Double(field.text!)
+        return (field.text != nil) ? Double(field.text!) : nil
     }
 }
