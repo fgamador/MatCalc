@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Properties
 
@@ -33,10 +33,27 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        pictureWidthField.delegate = self
+        pictureHeightField.delegate = self
+        matWidthField.delegate = self
+        matHeightField.delegate = self
+        overlapField.delegate = self
+        weightField.delegate = self
+
+        overlapField.text = "0"
+        overlap = 0;
+        weightField.text = "0"
+        weight = 0;
     }
 
     // MARK: Actions
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
+    }
 
     @IBAction func pictureWidthEditingDidEnd(_ sender: UITextField) {
         pictureWidth = fieldToDouble(field: pictureWidthField)
