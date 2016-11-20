@@ -57,57 +57,70 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func pictureWidthEditingDidEnd(_ sender: UITextField) {
         pictureWidth = fieldToDouble(field: pictureWidthField)
-        tryToCalculateBorderWidth()
+        tryToShowBorderSides()
     }
 
     @IBAction func pictureHeightEditingDidEnd(_ sender: UITextField) {
         pictureHeight = fieldToDouble(field: pictureHeightField)
-        tryToCalculateBorderTopAndBottom()
+        tryToShowBorderTopAndBottom()
     }
 
     @IBAction func matWidthEditingDidEnd(_ sender: UITextField) {
         matWidth = fieldToDouble(field: matWidthField)
-        tryToCalculateBorderWidth()
+        tryToShowBorderSides()
     }
 
     @IBAction func matHeightEditingDidEnd(_ sender: UITextField) {
         matHeight = fieldToDouble(field: matHeightField)
-        tryToCalculateBorderTopAndBottom()
+        tryToShowBorderTopAndBottom()
     }
 
     @IBAction func overlapEditingDidEnd(_ sender: UITextField) {
         overlap = fieldToDouble(field: overlapField)
-        tryToCalculateBorderWidth()
-        tryToCalculateBorderTopAndBottom()
+        tryToShowBorderSides()
+        tryToShowBorderTopAndBottom()
     }
 
     @IBAction func weightEditingDidEnd(_ sender: UITextField) {
         weight = fieldToDouble(field: weightField)
-        tryToCalculateBorderTopAndBottom()
+        tryToShowBorderTopAndBottom()
     }
 
     // MARK: Methods
     
-    func tryToCalculateBorderWidth() {
+    func tryToShowBorderSides() {
+        let border = tryToCalculateBorderSides()
+        if (border != nil) {
+            leftBorderLabel.text = String(border!)
+            rightBorderLabel.text = String(border!)
+        }
+    }
+    
+    func tryToCalculateBorderSides() -> Double? {
         if pictureWidth == nil || matWidth == nil || overlap == nil {
-            return
+            return nil
         }
         
         let effectivePictureWidth = pictureWidth! - 2*overlap!;
-        let border = (matWidth! - effectivePictureWidth) / 2
-        leftBorderLabel.text = String(border)
-        rightBorderLabel.text = String(border)
+        return (matWidth! - effectivePictureWidth) / 2
     }
     
-    func tryToCalculateBorderTopAndBottom() {
+    func tryToShowBorderTopAndBottom() {
+        let borders = tryToCalculateBorderTopAndBottom()
+        if (borders.top != nil && borders.bottom != nil) {
+            topBorderLabel.text = String(borders.top!)
+            bottomBorderLabel.text = String(borders.bottom!)
+        }
+    }
+
+    func tryToCalculateBorderTopAndBottom() -> (top: Double?, bottom: Double?) {
         if pictureHeight == nil || matHeight == nil || overlap == nil || weight == nil {
-            return
+            return (nil, nil)
         }
         
         let effectivePictureHeight = pictureHeight! - 2*overlap!;
         let border = (matHeight! - effectivePictureHeight) / 2
-        topBorderLabel.text = String(border - weight!)
-        bottomBorderLabel.text = String(border + weight!)
+        return (border - weight!, border + weight!)
     }
 
     func fieldToDouble(field: UITextField) -> Double? {
