@@ -22,10 +22,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="NCr-Ik-hIq" userLabel="Root">
-                                <rect key="frame" x="39" y="50" width="298" height="265.5"/>
+                                <rect key="frame" x="39" y="50" width="298" height="423.5"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="HE5-HI-7od" customClass="MatBoardView" customModule="MatCalc" customModuleProvider="target">
+                                        <rect key="frame" x="29" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="TgA-sq-GVp" userLabel="Border Labels">
-                                        <rect key="frame" x="85" y="0.0" width="128" height="91.5"/>
+                                        <rect key="frame" x="85" y="158" width="128" height="91.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caw-Df-BHy">
                                                 <rect key="frame" x="57" y="0.0" width="14" height="20.5"/>
@@ -59,7 +63,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xSj-rm-4g7" userLabel="Inputs">
-                                        <rect key="frame" x="0.0" y="121.5" width="298" height="144"/>
+                                        <rect key="frame" x="0.0" y="279.5" width="298" height="144"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q7t-5E-Foz" userLabel="Picture Inputs">
                                                 <rect key="frame" x="0.0" y="0.0" width="298" height="30"/>
