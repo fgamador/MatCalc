@@ -24,12 +24,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var overlapField: UITextField!
     @IBOutlet weak var weightField: UITextField!
 
-    var pictureWidth: Double?
-    var pictureHeight: Double?
-    var matWidth: Double?
-    var matHeight: Double?
-    var overlap: Double = 0
-    var weight: Double = 0
+    let mat = WindowMat()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,71 +49,53 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func pictureWidthEditingDidEnd(_ sender: UITextField) {
-        pictureWidth = fieldToDouble(field: pictureWidthField)
+        mat.pictureWidth = fieldToDouble(field: pictureWidthField)
         tryToShowBorderSides()
     }
 
     @IBAction func pictureHeightEditingDidEnd(_ sender: UITextField) {
-        pictureHeight = fieldToDouble(field: pictureHeightField)
+        mat.pictureHeight = fieldToDouble(field: pictureHeightField)
         tryToShowBorderTopAndBottom()
     }
 
     @IBAction func matWidthEditingDidEnd(_ sender: UITextField) {
-        matWidth = fieldToDouble(field: matWidthField)
+        mat.matWidth = fieldToDouble(field: matWidthField)
         tryToShowBorderSides()
     }
 
     @IBAction func matHeightEditingDidEnd(_ sender: UITextField) {
-        matHeight = fieldToDouble(field: matHeightField)
+        mat.matHeight = fieldToDouble(field: matHeightField)
         tryToShowBorderTopAndBottom()
     }
 
     @IBAction func overlapEditingDidEnd(_ sender: UITextField) {
-        overlap = fieldToDouble(field: overlapField)!
+        mat.overlap = fieldToDouble(field: overlapField)!
         tryToShowBorderSides()
         tryToShowBorderTopAndBottom()
     }
 
     @IBAction func weightEditingDidEnd(_ sender: UITextField) {
-        weight = fieldToDouble(field: weightField)!
+        mat.weight = fieldToDouble(field: weightField)!
         tryToShowBorderTopAndBottom()
     }
 
     // MARK: Methods
     
     func tryToShowBorderSides() {
-        let border = tryToCalculateBorderSides()
-        if (border != nil) {
-            leftBorderLabel.text = String(border!)
-            rightBorderLabel.text = String(border!)
-        }
-    }
-    
-    func tryToCalculateBorderSides() -> Double? {
-        if pictureWidth == nil || matWidth == nil {
-            return nil
-        }
-        
-        let effectivePictureWidth = pictureWidth! - 2*overlap;
-        return (matWidth! - effectivePictureWidth) / 2
-    }
-    
-    func tryToShowBorderTopAndBottom() {
-        let borders = tryToCalculateBorderTopAndBottom()
-        if (borders.top != nil && borders.bottom != nil) {
-            topBorderLabel.text = String(borders.top!)
-            bottomBorderLabel.text = String(borders.bottom!)
+        let sideBorder = mat.sideBorder
+        if (sideBorder != nil) {
+            leftBorderLabel.text = String(sideBorder!)
+            rightBorderLabel.text = String(sideBorder!)
         }
     }
 
-    func tryToCalculateBorderTopAndBottom() -> (top: Double?, bottom: Double?) {
-        if pictureHeight == nil || matHeight == nil {
-            return (nil, nil)
+    func tryToShowBorderTopAndBottom() {
+        let topBorder = mat.topBorder
+        let bottomBorder = mat.bottomBorder
+        if (topBorder != nil && bottomBorder != nil) {
+            topBorderLabel.text = String(topBorder!)
+            bottomBorderLabel.text = String(bottomBorder!)
         }
-        
-        let effectivePictureHeight = pictureHeight! - 2*overlap;
-        let border = (matHeight! - effectivePictureHeight) / 2
-        return (border - weight, border + weight)
     }
 
     func fieldToDouble(field: UITextField) -> Double? {

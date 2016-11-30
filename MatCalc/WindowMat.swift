@@ -32,8 +32,17 @@ class WindowMat {
             tryToCalculateTopAndBottomBorders()
         }
     }
-    var overlap: Double = 0
-    var weight: Double = 0
+    var overlap: Double = 0 {
+        didSet {
+            tryToCalculateTopAndBottomBorders()
+            tryToCalculateSideBorder()
+        }
+    }
+    var weight: Double = 0 {
+        didSet {
+            tryToCalculateTopAndBottomBorders()
+        }
+    }
 
     var topBorder: Double?
     var sideBorder: Double?
