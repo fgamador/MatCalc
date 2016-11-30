@@ -16,7 +16,7 @@ class WindowMatView: UIView {
     }
 
     override public var intrinsicContentSize: CGSize {
-        return CGSize(width: 240, height: 128)
+        return CGSize(width: 200, height: 200)
     }
 
     override func draw(_ rect: CGRect) {
@@ -24,7 +24,8 @@ class WindowMatView: UIView {
         let w = rect.width
         let color = UIColor.black
 
-        let drect = CGRect(x: (w * 0.25), y: (h * 0.25), width: (w * 0.5), height: (h * 0.5))
+        //let drect = CGRect(x: (w * 0.25), y: (h * 0.25), width: (w * 0.5), height: (h * 0.5))
+        let drect = CGRect(x: 0, y: 0, width: w, height: h)
         let bpath = UIBezierPath(rect: drect)
 
         color.set()
