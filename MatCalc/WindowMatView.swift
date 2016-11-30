@@ -29,17 +29,28 @@ class WindowMatView: UIView {
             return
         }
 
-        let scaling = min(bounds.width / CGFloat(mat.pictureWidth!),
-                          bounds.height / CGFloat(mat.pictureHeight!))
+        let scaling = min(bounds.width / CGFloat(mat.matWidth!),
+                          bounds.height / CGFloat(mat.matHeight!))
 
-        let matRectWidth = scaling*CGFloat(mat.pictureWidth!)
-        let matRectHeight = scaling*CGFloat(mat.pictureHeight!)
-        let matRect = CGRect(x: (bounds.width - matRectWidth) / 2,
-                             y: (bounds.height - matRectHeight) / 2,
-                             width: matRectWidth,
-                             height: matRectHeight)
+        let matRectWidth = scaling*CGFloat(mat.matWidth!)
+        let matRectHeight = scaling*CGFloat(mat.matHeight!)
+        let matRectX = (bounds.width - matRectWidth) / 2
+        let matRectY = (bounds.height - matRectHeight) / 2
+        let matRect = CGRect(x: matRectX, y: matRectY, width: matRectWidth, height: matRectHeight)
+
+        let pictureRectX = matRectX + scaling*CGFloat(mat.sideBorder!)
+        let pictureRectY = matRectY + scaling*CGFloat(mat.topBorder!)
+        let pictureRectWidth = scaling*CGFloat(mat.pictureWidth!)
+        let pictureRectHeight = scaling*CGFloat(mat.pictureHeight!)
+        let pictureRect = CGRect(x: pictureRectX,
+                                 y: pictureRectY,
+                                 width: pictureRectWidth,
+                                 height: pictureRectHeight)
 
         UIColor.black.set()
         UIBezierPath(rect: matRect).stroke()
+
+        UIColor.gray.set()
+        UIBezierPath(rect: pictureRect).fill()
     }
 }
