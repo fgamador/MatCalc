@@ -24,20 +24,22 @@ class WindowMatView: UIView {
         return CGSize(width: 200, height: 200)
     }
 
-    override func draw(_ rect: CGRect) {
+    override func draw(_ bounds: CGRect) {
         if !mat.hasAllValues() {
             return
         }
 
-        let h = rect.height
-        let w = rect.width
-        let color = UIColor.black
+        let scaling = min(bounds.width / CGFloat(mat.pictureWidth!),
+                          bounds.height / CGFloat(mat.pictureHeight!))
 
-        //let drect = CGRect(x: (w * 0.25), y: (h * 0.25), width: (w * 0.5), height: (h * 0.5))
-        let drect = CGRect(x: 0, y: 0, width: w, height: h)
-        let bpath = UIBezierPath(rect: drect)
+        let matRectWidth = scaling*CGFloat(mat.pictureWidth!)
+        let matRectHeight = scaling*CGFloat(mat.pictureHeight!)
+        let matRect = CGRect(x: (bounds.width - matRectWidth) / 2,
+                             y: (bounds.height - matRectHeight) / 2,
+                             width: matRectWidth,
+                             height: matRectHeight)
 
-        color.set()
-        bpath.stroke()
+        UIColor.black.set()
+        UIBezierPath(rect: matRect).stroke()
     }
 }
