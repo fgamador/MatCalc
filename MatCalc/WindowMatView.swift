@@ -9,6 +9,7 @@
 import UIKit
 
 class WindowMatView: UIView {
+
     // MARK: Initialization
 
     required init?(coder aDecoder: NSCoder) {

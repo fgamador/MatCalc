@@ -14,6 +14,7 @@
 		5D2F49891DD948A3006FF2C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2F49871DD948A3006FF2C2 /* LaunchScreen.storyboard */; };
 		5D2F49941DD948A3006FF2C2 /* MatCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F49931DD948A3006FF2C2 /* MatCalcTests.swift */; };
 		5D5CB0D41DED2F8D00E138C9 /* WindowMatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5CB0D31DED2F8D00E138C9 /* WindowMatView.swift */; };
+		5D5CB0D61DEE858400E138C9 /* WindowMat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5CB0D51DEE858400E138C9 /* WindowMat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		5D2F49931DD948A3006FF2C2 /* MatCalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatCalcTests.swift; sourceTree = "<group>"; };
 		5D2F49951DD948A3006FF2C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D5CB0D31DED2F8D00E138C9 /* WindowMatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowMatView.swift; sourceTree = "<group>"; };
+		5D5CB0D51DEE858400E138C9 /* WindowMat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowMat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				5D2F497E1DD948A3006FF2C2 /* AppDelegate.swift */,
 				5D2F49801DD948A3006FF2C2 /* ViewController.swift */,
 				5D2F49821DD948A3006FF2C2 /* Main.storyboard */,
+				5D5CB0D51DEE858400E138C9 /* WindowMat.swift */,
 				5D5CB0D31DED2F8D00E138C9 /* WindowMatView.swift */,
 				5D2F49851DD948A3006FF2C2 /* Assets.xcassets */,
 				5D2F49871DD948A3006FF2C2 /* LaunchScreen.storyboard */,
@@ -204,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D5CB0D61DEE858400E138C9 /* WindowMat.swift in Sources */,
 				5D5CB0D41DED2F8D00E138C9 /* WindowMatView.swift in Sources */,
 				5D2F49811DD948A3006FF2C2 /* ViewController.swift in Sources */,
 				5D2F497F1DD948A3006FF2C2 /* AppDelegate.swift in Sources */,
