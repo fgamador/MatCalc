@@ -50,6 +50,10 @@ class WindowMat {
 
     // MARK: Methods
 
+    func hasAllValues() -> Bool {
+        return pictureWidth != nil && pictureHeight != nil && matWidth != nil && matHeight != nil
+    }
+
     func tryToCalculateSideBorder() {
         if pictureWidth == nil || matWidth == nil {
             return

@@ -55,32 +55,38 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func pictureWidthEditingDidEnd(_ sender: UITextField) {
         mat.pictureWidth = fieldToDouble(field: pictureWidthField)
         tryToShowBorderSides()
+        matView.setNeedsDisplay()
     }
 
     @IBAction func pictureHeightEditingDidEnd(_ sender: UITextField) {
         mat.pictureHeight = fieldToDouble(field: pictureHeightField)
         tryToShowBorderTopAndBottom()
+        matView.setNeedsDisplay()
     }
 
     @IBAction func matWidthEditingDidEnd(_ sender: UITextField) {
         mat.matWidth = fieldToDouble(field: matWidthField)
         tryToShowBorderSides()
+        matView.setNeedsDisplay()
     }
 
     @IBAction func matHeightEditingDidEnd(_ sender: UITextField) {
         mat.matHeight = fieldToDouble(field: matHeightField)
         tryToShowBorderTopAndBottom()
+        matView.setNeedsDisplay()
     }
 
     @IBAction func overlapEditingDidEnd(_ sender: UITextField) {
         mat.overlap = fieldToDouble(field: overlapField)!
         tryToShowBorderSides()
         tryToShowBorderTopAndBottom()
+        matView.setNeedsDisplay()
     }
 
     @IBAction func weightEditingDidEnd(_ sender: UITextField) {
         mat.weight = fieldToDouble(field: weightField)!
         tryToShowBorderTopAndBottom()
+        matView.setNeedsDisplay()
     }
 
     // MARK: Methods

@@ -25,9 +25,9 @@ class WindowMatView: UIView {
     }
 
     override func draw(_ rect: CGRect) {
-        //if mat.matWidth == nil {
-        //    return
-        //}
+        if !mat.hasAllValues() {
+            return
+        }
 
         let h = rect.height
         let w = rect.width
