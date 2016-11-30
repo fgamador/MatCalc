@@ -10,6 +10,10 @@ import UIKit
 
 class WindowMatView: UIView {
 
+    // MARK: Properties
+
+    var mat: WindowMat!
+
     // MARK: Initialization
 
     required init?(coder aDecoder: NSCoder) {
@@ -21,6 +25,10 @@ class WindowMatView: UIView {
     }
 
     override func draw(_ rect: CGRect) {
+        //if mat.matWidth == nil {
+        //    return
+        //}
+
         let h = rect.height
         let w = rect.width
         let color = UIColor.black

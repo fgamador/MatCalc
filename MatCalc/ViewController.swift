@@ -24,6 +24,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var overlapField: UITextField!
     @IBOutlet weak var weightField: UITextField!
 
+    @IBOutlet weak var matView: WindowMatView!
+
     let mat = WindowMat()
 
     override func viewDidLoad() {
@@ -38,6 +40,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         overlapField.text = "0"
         weightField.text = "0"
+
+        matView.mat = mat
     }
 
     // MARK: Actions

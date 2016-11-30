@@ -218,6 +218,7 @@
                         <outlet property="bottomBorderLabel" destination="n5t-tY-AIl" id="Tjw-6i-RMe"/>
                         <outlet property="leftBorderLabel" destination="ABu-GB-AH3" id="O8Y-D2-qm8"/>
                         <outlet property="matHeightField" destination="AUK-fZ-56o" id="sQz-Bg-7ev"/>
+                        <outlet property="matView" destination="HE5-HI-7od" id="HCX-xM-88u"/>
                         <outlet property="matWidthField" destination="P1L-bl-UNQ" id="y3E-5s-DgI"/>
                         <outlet property="overlapField" destination="hxL-xN-pQ1" id="8LM-UU-Zg5"/>
                         <outlet property="pictureHeightField" destination="qYG-ag-Loi" id="LB5-aw-Wq9"/>
