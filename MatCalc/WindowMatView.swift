@@ -31,26 +31,28 @@ class WindowMatView: UIView {
 
         let scaling = min(bounds.width / CGFloat(mat.matWidth!),
                           bounds.height / CGFloat(mat.matHeight!))
-
-        let matRectWidth = scaling*CGFloat(mat.matWidth!)
-        let matRectHeight = scaling*CGFloat(mat.matHeight!)
-        let matRectX = (bounds.width - matRectWidth) / 2
-        let matRectY = (bounds.height - matRectHeight) / 2
-        let matRect = CGRect(x: matRectX, y: matRectY, width: matRectWidth, height: matRectHeight)
-
-        let pictureRectX = matRectX + scaling*CGFloat(mat.sideBorder!)
-        let pictureRectY = matRectY + scaling*CGFloat(mat.topBorder!)
-        let pictureRectWidth = scaling*CGFloat(mat.pictureWidth!)
-        let pictureRectHeight = scaling*CGFloat(mat.pictureHeight!)
-        let pictureRect = CGRect(x: pictureRectX,
-                                 y: pictureRectY,
-                                 width: pictureRectWidth,
-                                 height: pictureRectHeight)
+        let matRect = calcMatRect(scaling: scaling)
+        let pictureRect = calcPictureRect(matRectOrigin: matRect.origin, scaling: scaling)
 
         UIColor.black.set()
         UIBezierPath(rect: matRect).stroke()
 
         UIColor.gray.set()
         UIBezierPath(rect: pictureRect).fill()
+    }
+
+    func calcMatRect(scaling: CGFloat) -> CGRect {
+        let matRectWidth = scaling*CGFloat(mat.matWidth!)
+        let matRectHeight = scaling*CGFloat(mat.matHeight!)
+        return CGRect(x: (bounds.width - matRectWidth) / 2,
+                      y: (bounds.height - matRectHeight) / 2,
+                      width: matRectWidth, height: matRectHeight)
+    }
+
+    func calcPictureRect(matRectOrigin: CGPoint, scaling: CGFloat) -> CGRect {
+        return CGRect(x: matRectOrigin.x + scaling*CGFloat(mat.sideBorder!),
+                      y: matRectOrigin.y + scaling*CGFloat(mat.topBorder!),
+                      width: scaling*CGFloat(mat.pictureWidth!),
+                      height: scaling*CGFloat(mat.pictureHeight!))
     }
 }
