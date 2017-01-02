@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var pictureHeightField: UITextField!
     @IBOutlet weak var matWidthField: UITextField!
     @IBOutlet weak var matHeightField: UITextField!
-    @IBOutlet weak var overlapField: UITextField!
+    @IBOutlet weak var marginField: UITextField!
     @IBOutlet weak var weightField: UITextField!
 
     @IBOutlet weak var matView: WindowMatView!
@@ -35,10 +35,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         pictureHeightField.delegate = self
         matWidthField.delegate = self
         matHeightField.delegate = self
-        overlapField.delegate = self
+        marginField.delegate = self
         weightField.delegate = self
 
-        overlapField.text = "0"
+        marginField.text = "0"
         weightField.text = "0"
 
         matView.mat = mat
@@ -76,8 +76,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         matView.setNeedsDisplay()
     }
 
-    @IBAction func overlapEditingDidEnd(_ sender: UITextField) {
-        mat.overlap = fieldToDouble(field: overlapField)!
+    @IBAction func marginEditingDidEnd(_ sender: UITextField) {
+        mat.margin = fieldToDouble(field: marginField)!
         tryToShowBorderSides()
         tryToShowBorderTopAndBottom()
         matView.setNeedsDisplay()

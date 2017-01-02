@@ -32,7 +32,7 @@ class WindowMat {
             tryToCalculateTopAndBottomBorders()
         }
     }
-    var overlap: Double = 0 {
+    var margin: Double = 0 {
         didSet {
             tryToCalculateTopAndBottomBorders()
             tryToCalculateSideBorder()
@@ -59,7 +59,7 @@ class WindowMat {
             return
         }
 
-        let effectivePictureWidth = pictureWidth! - 2*overlap;
+        let effectivePictureWidth = pictureWidth! + 2*margin;
         sideBorder = (matWidth! - effectivePictureWidth) / 2
     }
 
@@ -68,7 +68,7 @@ class WindowMat {
             return
         }
 
-        let effectivePictureHeight = pictureHeight! - 2*overlap;
+        let effectivePictureHeight = pictureHeight! + 2*margin;
         let border = (matHeight! - effectivePictureHeight) / 2
         topBorder = border - weight
         bottomBorder = border + weight

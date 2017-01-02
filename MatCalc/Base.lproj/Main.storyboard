@@ -115,42 +115,41 @@
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qc8-pr-qcz" userLabel="Overlap Input">
-                                                <rect key="frame" x="0.0" y="76" width="157.5" height="30"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qc8-pr-qcz" userLabel="Margin Input">
+                                                <rect key="frame" x="0.0" y="76" width="152" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overlap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ilw-jP-9dA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="59.5" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Margin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ilw-jP-9dA" userLabel="Margin">
+                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hxL-xN-pQ1">
-                                                        <rect key="frame" x="67.5" y="0.0" width="90" height="30"/>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hxL-xN-pQ1" userLabel="Margin Field">
+                                                        <rect key="frame" x="62" y="0.0" width="90" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                         <connections>
-                                                            <action selector="overlapEditingDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="ArS-bl-aFk"/>
+                                                            <action selector="marginEditingDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="0A8-J7-leP"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wH8-kh-UWh" userLabel="Weight Input">
-                                                <rect key="frame" x="0.0" y="114" width="157.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="114" width="152" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2d-xv-QDl">
-                                                        <rect key="frame" x="0.0" y="0.0" width="59.5" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ADn-ao-SFU">
-                                                        <rect key="frame" x="67.5" y="0.0" width="90" height="30"/>
+                                                        <rect key="frame" x="62" y="0.0" width="90" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                         <connections>
-                                                            <action selector="overlapEditingDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="JfV-Xn-xdK"/>
                                                             <action selector="weightEditingDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="b06-qI-p5W"/>
                                                         </connections>
                                                     </textField>
@@ -217,10 +216,10 @@
                     <connections>
                         <outlet property="bottomBorderLabel" destination="n5t-tY-AIl" id="Tjw-6i-RMe"/>
                         <outlet property="leftBorderLabel" destination="ABu-GB-AH3" id="O8Y-D2-qm8"/>
+                        <outlet property="marginField" destination="hxL-xN-pQ1" id="BSR-pI-R9x"/>
                         <outlet property="matHeightField" destination="AUK-fZ-56o" id="sQz-Bg-7ev"/>
                         <outlet property="matView" destination="HE5-HI-7od" id="HCX-xM-88u"/>
                         <outlet property="matWidthField" destination="P1L-bl-UNQ" id="y3E-5s-DgI"/>
-                        <outlet property="overlapField" destination="hxL-xN-pQ1" id="8LM-UU-Zg5"/>
                         <outlet property="pictureHeightField" destination="qYG-ag-Loi" id="LB5-aw-Wq9"/>
                         <outlet property="pictureWidthField" destination="SAB-8U-t22" id="WJn-fy-mEd"/>
                         <outlet property="rightBorderLabel" destination="m4n-Z0-RAs" id="pII-y1-82y"/>
