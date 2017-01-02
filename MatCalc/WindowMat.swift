@@ -22,6 +22,8 @@ class WindowMat {
             tryToCalculateTopAndBottomBorders()
         }
     }
+    var windowWidth: Double?
+    var windowHeight: Double?
     var matWidth: Double? {
         didSet {
             tryToCalculateSideBorder()
@@ -59,8 +61,8 @@ class WindowMat {
             return
         }
 
-        let effectivePictureWidth = pictureWidth! + 2*margin;
-        sideBorder = (matWidth! - effectivePictureWidth) / 2
+        windowWidth = pictureWidth! + 2*margin;
+        sideBorder = (matWidth! - windowWidth!) / 2
     }
 
     func tryToCalculateTopAndBottomBorders() {
@@ -68,8 +70,8 @@ class WindowMat {
             return
         }
 
-        let effectivePictureHeight = pictureHeight! + 2*margin;
-        let border = (matHeight! - effectivePictureHeight) / 2
+        windowHeight = pictureHeight! + 2*margin;
+        let border = (matHeight! - windowHeight!) / 2
         topBorder = border - weight
         bottomBorder = border + weight
     }

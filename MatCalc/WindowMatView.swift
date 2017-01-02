@@ -52,7 +52,7 @@ class WindowMatView: UIView {
     func calcPictureRect(matRectOrigin: CGPoint, scaling: CGFloat) -> CGRect {
         return CGRect(x: matRectOrigin.x + scaling*CGFloat(mat.sideBorder!),
                       y: matRectOrigin.y + scaling*CGFloat(mat.topBorder!),
-                      width: scaling*CGFloat(mat.pictureWidth!),
-                      height: scaling*CGFloat(mat.pictureHeight!))
+                      width: scaling*CGFloat(mat.windowWidth!),
+                      height: scaling*CGFloat(mat.windowHeight!))
     }
 }
